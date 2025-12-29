@@ -21,10 +21,10 @@ fi
 # Function - will not run unless until we call it explicitly
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo "ERROR:: $2 installation is Failed"
+        echo -e "$R ERROR:: $2 installation is Failed $N"
         exit 1
     else
-        echo "$2 installation is success"
+        echo -e "$2 $G installation is success $N"
     fi
 }
 
