@@ -7,6 +7,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+mkdir -p shell-script
+
 LOG_FOLDER="/var/log/shell-script"
 LOG_FILE_NAME= echo $0 | cut -d "." -f1
 LOG_FILE= $LOG_FOLDER/$LOG_FILE_NAME.log
@@ -26,7 +28,7 @@ VALIDATE(){
     fi
 }
 
-mkdir -p shell-script
+
 #$@ - All arguments
 
 for package in $@
