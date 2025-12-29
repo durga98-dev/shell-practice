@@ -29,11 +29,11 @@ VALIDATE(){
 mkdir -p shell-script
 #$@ - All arguments
 
-for package in $@; then
+for package in $@
 do
     #checking if package is already installed or not
     dnf list installed $package &>> $LOG_FILE
-    if [ $? -ne 0 ]
+    if [ $? -ne 0 ];then
         dnf install $package -y &>> $LOG_FILE
         VALIDATE $? "$package"
     else
