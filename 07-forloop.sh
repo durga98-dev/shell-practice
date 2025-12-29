@@ -7,11 +7,11 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-mkdir -p "shell-script"
-
 LOG_FOLDER="/var/log/shell-script"
 LOG_FILE_NAME= echo $0 | cut -d "." -f1
 LOG_FILE="$LOG_FOLDER/$LOG_FILE_NAME.log"
+
+mkdir -p $LOG_FOLDER
 
 if [ $USERID -ne 0 ]; then
     echo -e "$R ERROR:: Run the script with root privilege $N"
@@ -34,7 +34,7 @@ VALIDATE(){
 for package in $@
 do
     #checking if package is already installed or not
-    dnf list installed $package &>> $LOG_FILE
+    dnf list installed ${package} &>> $LOG_FILE
     if [ $? -ne 0 ];then
         dnf install $package -y &>> $LOG_FILE
         VALIDATE $? "$package"
