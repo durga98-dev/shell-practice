@@ -16,8 +16,6 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
-
-
 # Function - will not run unless until we call it explicitly
 VALIDATE(){
     if [ $1 -ne 0 ]; then
@@ -28,6 +26,7 @@ VALIDATE(){
     fi
 }
 
+mkdir -p shell-script
 #$@ - All arguments
 
 for package in $@; then
